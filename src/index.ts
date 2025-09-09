@@ -38,9 +38,9 @@
 // ------------ Array ------------
 
 // const arr = [12,23,44,65,45]
-const arr:number[] = [23,34,45,56,67,78,89,90] // only number is allow to store in array
+const arr: number[] = [23, 34, 45, 56, 67, 78, 89, 90] // only number is allow to store in array
 
-const strr:string[] = ["hii","me","ok"]  // only string is allow in array
+const strr: string[] = ["hii", "me", "ok"]  // only string is allow in array
 
 // --------- Array with Generics -----------
 
@@ -65,7 +65,61 @@ const strr:string[] = ["hii","me","ok"]  // only string is allow in array
 // console.log(arr8)
 
 
- 
+
+// ---------- Object in typescript --------------
+// type keyword
+// type obj = {
+//     height: number,
+//     weight: number,
+//     gender?: boolean
+// }
+
+
+// interface
+interface obj {
+    height: number,
+    weight: number,
+    gender?: boolean
+}
+
+type FuncType = (n:number,m:number) => void
+
+interface newObj extends obj {
+    scoler: boolean,
+    func: FuncType;
+}
+
+const gigi: newObj = {
+    height: 342,
+    weight: 33,
+    scoler: true,
+    func: (n,m) => {
+        console.log("n*m =",n*m)
+    }
+}
+
+const kendle: newObj = {
+    height: 342,
+    weight: 33,
+    scoler: true,
+    func: (n,m) => {
+        console.log("n*m =",n*m)
+    }
+}
+
+kendle.func(10,20)
+
+const obg: obj = {
+    height: 342,
+    weight: 33,
+    gender: true
+}
+
+const obj2: obj = {
+    height: 342,
+    weight: 33
+}
+
 
 
 
