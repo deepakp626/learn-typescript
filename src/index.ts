@@ -121,6 +121,52 @@ const obj2: obj = {
 }
 
 
+// ----------- function in typescript -----------------
+
+type Functype = (n:number,m:number) => number
+
+const func:Functype = (n,m) => {
+    return n*m
+}
+
+console.log(func(10,20))
+
+
+// ---- Optional parameter banana hai tho
+// type Fnctype = (n:number,m:number,l?:number) => number;
+
+// const func2:Fnctype = (n,m,l) => {
+//     if(typeof l === "undefined"){
+//         // return "l is a undefind hai"
+//         return n*m
+//     }
+//     return n*m*l
+// }
+// console.log(func2(10,20,30))
+
+
+// ---- default parameter banana hai tho
+type Fnctype = (n:number,m:number,l?:number) => number;
+
+const func3:Fnctype = (n,m,l=10) => {
+   
+    return n*m*l
+}
+// console.log(func3(10,20))
+
+
+
+// ------  Rest operator in typescript ------------------
+// type FuncType4 = (...m:number[]) => number[]
+
+// const func4:FuncType4 = (...m) => {
+//     console.log(m)
+//     return m
+// }
+// func4(10,20,30,40,50)
+
+
+
 
 
 

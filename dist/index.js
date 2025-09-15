@@ -50,5 +50,14 @@ const obj2 = {
     height: 342,
     weight: 33
 };
+const func = (n, m) => {
+    return n * m;
+};
+console.log(func(10, 20));
+const func3 = (n, m, l = 10) => {
+    return n * m * l;
+};
+console.log(func3(10, 20));
 export {};
+// ------  Rest operator in typescript ------------------
 //# sourceMappingURL=index.js.map
