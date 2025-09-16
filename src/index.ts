@@ -166,6 +166,58 @@ const func3:Fnctype = (n,m,l=10) => {
 // func4(10,20,30,40,50)
 
 
+// --------------  Function with Object ---------------
+
+// basic syntax
+const getData = (product:{name:string,stock:number,price:number,photo:string}) : void =>{
+
+}
+
+// --------------- Interface synta ------------
+interface product {
+    name:string,
+    stock:number,
+    price:number,
+    photo:string
+}
+type GetDataType = (product:product) => void
+
+// with tpye keyword
+// type GetDataType = (product:{name:string,stock:number,price:number,photo:string}) => void
+
+const getData2:GetDataType = (product)  => {
+    console.log(product)
+}
+
+const productOne:product = {
+    name:"macbook",
+    stock:46,
+    price:999,
+    photo:"image.url"
+}
+getData2(productOne)
+
+
+// -------------- Never type ------------------
+
+const err = new Error()
+
+
+const errorHandler = () : never => {
+    throw new Error() 
+}
+errorHandler()
+
+// ---------   auto detect in typescript ------------- 
+
+type themeMode = "light" | "dark" | "auto"
+const mode:themeMode = "dark"
+
+
+
+
+
+
 
 
 

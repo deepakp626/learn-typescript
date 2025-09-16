@@ -57,7 +57,36 @@ console.log(func(10, 20));
 const func3 = (n, m, l = 10) => {
     return n * m * l;
 };
-console.log(func3(10, 20));
-export {};
+// console.log(func3(10,20))
 // ------  Rest operator in typescript ------------------
+// type FuncType4 = (...m:number[]) => number[]
+// const func4:FuncType4 = (...m) => {
+//     console.log(m)
+//     return m
+// }
+// func4(10,20,30,40,50)
+// --------------  Function with Object ---------------
+// basic syntax
+const getData = (product) => {
+};
+// with tpye keyword
+// type GetDataType = (product:{name:string,stock:number,price:number,photo:string}) => void
+const getData2 = (product) => {
+    console.log(product);
+};
+const productOne = {
+    name: "macbook",
+    stock: 46,
+    price: 999,
+    photo: "image.url"
+};
+getData2(productOne);
+// -------------- Never type ------------------
+const err = new Error();
+const errorHandler = () => {
+    throw new Error();
+};
+errorHandler();
+const mode = "dark";
+export {};
 //# sourceMappingURL=index.js.map
