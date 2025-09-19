@@ -88,5 +88,111 @@ const errorHandler = () => {
 };
 errorHandler();
 const mode = "dark";
+// ----------------- classses in typescript ------------------
+// ----- first syntac
+// class Player {
+//     private height = 34;  // default value 
+//     weight = 20;          // default value 
+//     constructor(height:number,weight:number){
+//         this.height = height     
+//         this.weight = weight
+//     }
+//     myHeight = () =>{
+//         return this.height  
+//     }
+// }
+// const deepak = new Player(120,33)
+// console.log(deepak.myHeight())
+// ----- Second  syntac ---------
+// optional parameter banana hai tho  --- ?
+// super keyword for access parent property --- super 
+// class Player {
+//     constructor(private height:number,public weight:number,protected power?:number){     // power is optional hoga
+//         this.height = height     
+//         this.weight = weight    
+//     }
+// }
+// const deepak = new Player(120,33)
+// console.log(deepak)
+// class Player2 extends Player {
+//     special:boolean
+//     constructor(height:number,weight:number,power:number,special:boolean){
+//         super(height,weight,power)
+//         this.special = special
+//     }
+// }
+// const deepak2 = new Player2(122,35,7,true)
+// console.log(deepak2.weight)
+// // console.log(deepak2.height)
+// ------------  third syntax --------------
+// class Player {
+//     public readonly id:string
+//     constructor(private height:number,public weight:number,protected power?:number){     // power is optional hoga
+//         this.height = height     
+//         this.weight = weight   
+//         this.id = String(Math.random() * 100) 
+//     }
+//     getMyheight = () => this.height
+// }
+// const deepak = new Player(120,33)
+// console.log(deepak)
+// class Player2 extends Player {
+//     special:boolean
+//     constructor(height:number,weight:number,power:number,special:boolean){
+//         super(height,weight,power)
+//         this.special = special
+//     }
+//     getMyPower = () => this.power
+// }
+// const deepak2 = new Player2(122,35,7,true)
+// console.log(deepak2.weight)
+// console.log("Height -->",deepak2.getMyheight())
+// console.log("Height -->",deepak2.getMyPower())
+// console.log("ID -->",deepak2.id)
+// deepak2.id = "2323"     /// error throw karega kyoke readonly hai
+// --------- fourth syntax --------
+//  seter and getter function
+class Player {
+    height;
+    weight;
+    power;
+    id;
+    constructor(height, weight, power) {
+        this.height = height;
+        this.weight = weight;
+        this.power = power;
+        this.height = height;
+        this.weight = weight;
+        this.id = String(Math.random() * 100);
+    }
+    get getMyheight() {
+        return this.height;
+    }
+    set changeHeight(height) {
+        this.height = height;
+    }
+}
+const deepak = new Player(120, 33, 7);
+console.log(deepak);
+console.log("height before chnage -", deepak.getMyheight);
+deepak.changeHeight = 200;
+console.log("height after chnage -", deepak.getMyheight);
+class Product {
+    name;
+    price;
+    stock;
+    // id field fer productType sa remove karna hoge
+    id = String(Math.random() * 1000);
+    constructor(name, price, stock) {
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
+    }
+    getId = () => this.id;
+}
+const Product2 = new Product("asus-one", 5000, 2);
 export {};
 //# sourceMappingURL=index.js.map
