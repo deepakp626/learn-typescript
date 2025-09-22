@@ -81,12 +81,6 @@ const productOne = {
     photo: "image.url"
 };
 getData2(productOne);
-// -------------- Never type ------------------
-const err = new Error();
-const errorHandler = () => {
-    throw new Error();
-};
-errorHandler();
 const mode = "dark";
 // ----------------- classses in typescript ------------------
 // ----- first syntac
@@ -194,5 +188,30 @@ class Product {
     getId = () => this.id;
 }
 const Product2 = new Product("asus-one", 5000, 2);
+// -------- Type Assertion 
+// method - 1
+const btn = document.getElementById("btn");
+// method - 2
+const btn2 = document.getElementById("btn");
+// method - 3
+const btn3 = document.getElementById("btn");
+btn.onclick;
+//   specific type define karna
+// method 4
+// const img = document.getElementById("myimg")! /// work nahe karega 
+//  specific type define karna
+// method 5
+const img = document.getElementById("myimg");
+img.src;
+const myObject = {
+    name: "abhi",
+    email: "abhi@gmail.com"
+};
+// const key = "name"
+// let key:keyof Person = "name"
+let key = "name";
+myObject[key];
+// ------ 4 -- ager person interface na hoth typeof ka throw 
+myObject[key];
 export {};
 //# sourceMappingURL=index.js.map

@@ -200,13 +200,13 @@ getData2(productOne)
 
 // -------------- Never type ------------------
 
-const err = new Error()
+// const err = new Error()
 
 
-const errorHandler = (): never => {
-    throw new Error()
-}
-errorHandler()
+// const errorHandler = (): never => {
+//     throw new Error()
+// }
+// errorHandler()
 
 // ---------   auto detect in typescript ------------- 
 
@@ -344,7 +344,7 @@ console.log("height after chnage -", deepak.getMyheight)
 
 // --- syntax one
 // class Product implements productType {
-    
+
 //     public id = String(Math.random() * 1000);
 
 //     constructor(public name: string,public price: number,public stock: number) {
@@ -395,16 +395,143 @@ interface productType {
 interface productIdType {
     getId: () => string;
 }
-class Product implements productType,productIdType {
+class Product implements productType, productIdType {
     // id field fer productType sa remove karna hoge
-    private id:string = String(Math.random() * 1000);
+    private id: string = String(Math.random() * 1000);
 
-    constructor(public name: string,public price: number,public stock: number) {
+    constructor(public name: string, public price: number, public stock: number) {
         this.name = name
         this.price = price
         this.stock = stock
     }
 
-    getId = () =>  this.id;
+    getId = () => this.id;
 }
-const Product2 = new Product("asus-one",5000,2)
+const Product2 = new Product("asus-one", 5000, 2)
+
+
+
+// -------- Type Assertion 
+// method - 1
+const btn = document.getElementById("btn") as HTMLElement
+
+// method - 2
+const btn2 = <HTMLElement>document.getElementById("btn")
+
+// method - 3
+const btn3 = document.getElementById("btn")!
+
+btn.onclick
+
+
+//   specific type define karna
+// method 4
+// const img = document.getElementById("myimg")! /// work nahe karega 
+
+//  specific type define karna
+// method 5
+const img = document.getElementById("myimg") as HTMLImageElement
+img.src
+
+
+// ------------ example for DOM manuculation --------------
+// method 6
+// specific query selector ma type assertion define karna nahe hotha hai
+// const img2 = document.querySelector("img")!
+// img2.src
+
+// const form = document.getElementById("myfomr") as HTMLFormElement
+
+// const myinput = document.querySelector("myform  > input") as HTMLInputElement
+
+// const mybtn = document.querySelector("myform  > button") as HTMLButtonElement
+
+
+// form.onsubmit = function (e: SubmitEvent) {
+//     e.preventDefault();
+
+//     let data = Number(myinput.value);
+//     console.log(data);
+//     console.log(typeof data);
+
+//     const h2 = document.createElement("h2");
+//     h2.textContent = String(data + 20);
+
+//     document.body.append(h2);
+// };
+
+
+
+
+// -------------  Index Signature ---------------
+
+// interface Person {
+//     [key: string]: string | number
+// }
+
+// interface Person {
+//     name:string,
+//     email:string
+// }
+
+// const myObj: Person = {
+//     name: "Jai",
+//     email: "test@gmail.com"
+// }
+
+// const getName = ()=> {
+//     return myObj["name"];
+// }
+
+// const getEmail = () => {
+//     return myObj["email"];
+// }
+
+// upper ka both function ko merge kara hai 
+// -------  1 -- dynamicaly define karna hai tho
+// const getMyData = (key: string) => {
+//     // myObj["name"]
+//     // myObj["email"]
+//     return myObj[key]
+// }
+
+// -------- 2 -- ager jo key object ma hai vo he lena hai tho
+// const getSpeData = (key : "name" | "email") => {
+//     return myObj[key]
+// }
+// getSpeData("name")
+
+
+// ----- 3 -- keyof ka throw dynamically define karna 
+
+interface Person {
+    name : string;
+    email: string
+}
+
+const myObject:Person = {
+    name:"abhi",
+    email:"abhi@gmail.com"
+}
+
+// const key = "name"
+// let key:keyof Person = "name"
+let key = "name" 
+
+myObject[key as keyof Person]
+
+// ------ 4 -- ager person interface na hoth typeof ka throw 
+
+myObject[key as keyof typeof myObject]
+
+
+
+
+
+
+
+
+
+
+
+
